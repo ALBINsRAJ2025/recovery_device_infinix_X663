@@ -11,11 +11,18 @@ LOCAL_PATH := device/infinix/X663
 AB_OTA_PARTITIONS += \
     boot \
     dtbo \
+    gz \
     lk \
+    logo \
+    md1img \
     preloader \
     product \
+    scp \
+    spmfw \
+    sspm \
     system \
     system_ext \
+    tee \
     vbmeta \
     vbmeta_system \
     vbmeta_vendor \
@@ -42,8 +49,6 @@ PRODUCT_TARGET_VNDK_VERSION := 30
 
 # API
 PRODUCT_SHIPPING_API_LEVEL := 30
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.build.security_patch=2099-12-31
     
 # Health Hal
 PRODUCT_PACKAGES += \
@@ -66,7 +71,10 @@ PRODUCT_PACKAGES += \
     
 # MTK PlPath Utils
 PRODUCT_PACKAGES += \
-    mtk_plpath_utils.recovery    
+    mtk_plpath_utils.recovery
+    
+PRODUCT_PACKAGES_DEBUG += \
+    update_engine_client
     
 PRODUCT_PACKAGES += \
     otapreopt_script \
@@ -74,3 +82,7 @@ PRODUCT_PACKAGES += \
     update_engine \
     update_verifier \
     update_engine_sideload
+    
+# OEM otacerts
+PRODUCT_EXTRA_RECOVERY_KEYS += \
+    $(LOCAL_PATH)/security/infinix    
